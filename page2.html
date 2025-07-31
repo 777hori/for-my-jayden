@@ -31,11 +31,11 @@ body {
   color: white;
 }
 
-/* Falling big hearts */
+/* Falling big hearts in background */
 .heart {
   position: absolute;
   color: rgba(255, 255, 255, 0.25);
-  font-size: 80px; /* REALLY big */
+  font-size: 80px;
   animation: fall 10s linear infinite;
 }
 @keyframes fall {
@@ -47,41 +47,55 @@ body {
 h1 {
   font-family: 'Shilten', sans-serif;
   font-size: 4.1em;
-  font-style: italic; /* italic */
-  font-weight: normal; /* no bold */
+  font-style: italic;
+  font-weight: normal;
   text-align: center;
   margin-bottom: 40px;
 }
 
-/* Text boxes */
+/* Text box container with animation background */
 .text-box {
   max-width: 700px;
-  background: rgba(100, 90, 160, 0.5); /* darker pastel for contrast */
+  background: rgba(100, 90, 160, 0.5);
   padding: 25px;
   border-radius: 15px;
   margin: 20px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  text-align: justify; /* justified text */
-  color: white;
+  position: relative;
+  overflow: hidden; /* keep animation inside */
 }
 
-/* Poem text */
+/* Canvas for red string animation */
+.red-string {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Text sits above animation */
+.poem, .song {
+  position: relative;
+  z-index: 1;
+}
+
 .poem {
   font-family: 'Cutesy', sans-serif;
   font-size: 1.9em;
   line-height: 1.6em;
+  text-align: justify;
 }
 
-/* Song title box */
 .song {
   font-family: 'MaybeNext', sans-serif;
   font-size: 2.3em;
   text-align: center;
-  font-style: italic; /* italic */
-  position: relative;
+  font-style: italic;
 }
 
-/* Animated music line */
+/* Music bar */
 .music-bar {
   width: 80%;
   height: 4px;
@@ -130,25 +144,33 @@ h1 {
 
 <h1>Jayden, Sweet as her name</h1>
 
-<!-- First poem paragraph -->
-<div class="text-box poem">
+<!-- First poem paragraph with red string animation -->
+<div class="text-box">
+<canvas class="red-string"></canvas>
+<div class="poem">
 The days seem to move differently when I think of you,
 as though time bends to make space for something unexplainable.
 In your presence, even the most ordinary hours feel stitched with meaning,
 like moments placed deliberately by some quiet hand in the universe.
 And sometimes, in the middle of that stillness,
 </div>
+</div>
 
-<!-- Song title + animated music line -->
-<div class="text-box song">
+<!-- Song title box with red string animation -->
+<div class="text-box">
+<canvas class="red-string"></canvas>
+<div class="song">
 Intertwine - OverOctober ft. The Ridleys
 <div class="music-bar">
   <div class="music-dot"></div>
 </div>
 </div>
+</div>
 
-<!-- Second poem paragraph -->
-<div class="text-box poem">
+<!-- Second poem paragraph with red string animation -->
+<div class="text-box">
+<canvas class="red-string"></canvas>
+<div class="poem">
 I hear “The night when our lives intertwine” – Intertwine, Over October & The Ridleys (2020).
 It arrives without warning, the way the universe sometimes sends its answers in fragments.
 I do not try to elaborate it anymore—
@@ -156,6 +178,7 @@ I simply accept that there is something in the gravity between us,
 something the universe itself seems to lean toward,
 as if every star, every unseen thread,
 had already been pulling me to you long before I knew your name.
+</div>
 </div>
 
 <a href="page3.html" class="next-btn">Proceed ➤</a>
@@ -171,6 +194,35 @@ for (let i = 0; i < 12; i++) {
   heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
   document.body.appendChild(heart);
 }
+</script>
+
+<!-- Red string animation script -->
+<script>
+document.querySelectorAll('.red-string').forEach(canvas => {
+  const ctx = canvas.getContext('2d');
+  let t = 0;
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(255, 0, 0, 0.4)'; // semi-transparent red
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let x = 0; x < canvas.width; x++) {
+      let y = canvas.height/2 + Math.sin(x/30 + t) * 20 + Math.sin(x/15 + t/2) * 10;
+      ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    t += 0.02;
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
 </script>
 
 </body>
