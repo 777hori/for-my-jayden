@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You Said Yes! 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe4ec, #ffe8f0);
+      text-align: center;
+      padding: 50px;
+      color: #5a2a27;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-top: 30px;
+    }
+    .message {
+      max-width: 700px;
+      margin: 30px auto;
+      font-size: 1.2em;
+      line-height: 1.8em;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .photo-container {
+      margin: 20px auto;
+      max-width: 400px;
+    }
+    img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .spotify-link {
+      margin: 30px 0;
+      font-size: 1.2em;
+    }
+    .spotify-link a {
+      color: #1DB954;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .poem {
+      max-width: 600px;
+      margin: 20px auto;
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 15px;
+      border-radius: 15px;
+    }
+    .restart-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background: #ff6b9c;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .restart-btn:hover {
+      background: #ff4e85;
+    }
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      top: -10px;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 You Said YES! 💖</h1>
+
+  <!-- First heartfelt paragraph -->
+  <div class="message">
+    <!-- Replace with your own -->
+    You’ve made me the happiest person in the world today. Knowing you feel the same is more than I could ever wish for. 💕
+  </div>
+
+  <!-- Picture -->
+  <div class="photo-container">
+    <!-- Replace with your own photo -->
+    <img src="https://via.placeholder.com/400x300.png?text=Us+Forever" alt="Us Together">
+  </div>
+
+  <!-- Spotify Playlist Link -->
+  <div class="spotify-link">
+    🎶 <a href="YOUR_SPOTIFY_PLAYLIST_LINK" target="_blank">Listen to Our Playlist</a> 🎶
+  </div>
+
+  <!-- Poem/Message 1 -->
+  <div class="poem">
+    <!-- Replace with your own -->
+    "In every heartbeat, there’s a whisper of your name."
+  </div>
+
+  <!-- Poem/Message 2 -->
+  <div class="poem">
+    <!-- Replace with your own -->
+    "Forever starts with you, and I wouldn’t have it any other way."
+  </div>
+
+  <!-- Restart Button -->
+  <a href="index.html" class="restart-btn">🔄 Back to the Beginning</a>
+
+  <script>
+    // Simple confetti
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+    setInterval(createConfetti, 200);
+  </script>
+
+</body>
+</html>
