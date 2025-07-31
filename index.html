@@ -2,54 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Poem for You 💖</title>
+  <title>Love, Maybe</title>
+
+  <!-- Load your uploaded fonts -->
   <style>
+    @font-face {
+      font-family: 'Shilten';
+      src: url('https://github.com/YOUR-USERNAME/YOUR-REPO/raw/main/Shilten.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Cutesy';
+      src: url('https://github.com/YOUR-USERNAME/YOUR-REPO/raw/main/Cutesy.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'MaybeNext';
+      src: url('https://github.com/YOUR-USERNAME/YOUR-REPO/raw/main/Maybe%20Next.otf') format('opentype');
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #ffe4ec, #ffe8f0);
+      background-color: #F3E4F5;
       text-align: center;
       padding: 50px;
-      color: #5a2a27;
+      color: #4a2b4f;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
+
+    /* Minimal sprinkled hearts */
+    .heart {
+      position: absolute;
+      color: rgba(255, 105, 180, 0.2);
+      font-size: 20px;
+      animation: float 8s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    /* Header */
+    h1 {
+      font-family: 'Shilten', sans-serif;
+      font-size: 2.8em;
+      margin-bottom: 30px;
+    }
+
+    /* Poem box */
     .poem {
-      max-width: 600px;
+      font-family: 'Cutesy', sans-serif;
+      max-width: 650px;
       margin: auto;
-      font-size: 1.4em;
+      font-size: 1.1em;
       line-height: 1.8em;
-      background: rgba(255, 255, 255, 0.6);
+      background: #E8DAF0;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
     }
+
+    /* Next button */
     .next-btn {
       display: inline-block;
       margin-top: 40px;
       padding: 12px 30px;
       font-size: 1.1em;
-      background: #ff6b9c;
+      font-family: 'MaybeNext', sans-serif;
+      background: #b388eb;
       color: white;
       border-radius: 30px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
     .next-btn:hover {
-      background: #ff4e85;
+      background: #9d6fe5;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <h1>For You 💌</h1>
+  <h1>Love, Maybe</h1>
 
   <div class="poem">
-    <!-- ✨ Replace this with your own poem -->
-    Roses are red,<br>
-    Violets are blue,<br>
-    Every word I write,<br>
-    Is meant just for you. 💕
+    I have seen, in our quiet moments, a life where you are there, you are here,
+    not as a distant figure passing through my days,
+    but as the constant presence beside me when the light first spills across the universe.
+    The mornings are soft in that imagined place,
+    with coffee cooling between our hands and a kind of peacce
+    that does not need to announce itself.
+    Your laughter hangs in the air like a fragrance,
+    and even the way your eyes linger turns the stillness into something lovely.
+    I picture you brushing the hair from your face, your eyes catching the slow sunlight,
+    and in that small motion, the day already feels worth keeping, living.
+    It’s strange how the mind can invent entire worlds from a single smile, your smile, specifically—
+    but perhaps it is your eyes, quiet, unguarded—that have been my truest compass,
+    for in every version of tomorrow I have imagined,
+    your eyes have never once been absent.
   </div>
 
-  <a href="page2.html" class="next-btn">Next ➡️</a>
+  <a href="page2.html" class="next-btn">⸜(｡˃ ᵕ ˂ )⸝♡</a>
+
+  <script>
+    // Create sprinkled hearts
+    const hearts = ['♡', '♥', '❥', '💜'];
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+      document.body.appendChild(heart);
+    }
+  </script>
 
 </body>
 </html>
