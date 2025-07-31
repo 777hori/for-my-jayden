@@ -1,71 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Poem for You 💖 - Page 2</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fff5e4, #ffe4d6);
-      text-align: center;
-      padding: 50px;
-      color: #5a2a27;
-    }
-    .poem {
-      max-width: 600px;
-      margin: auto;
-      font-size: 1.4em;
-      line-height: 1.8em;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .next-btn {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      font-size: 1.1em;
-      background: #ff6b9c;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .next-btn:hover {
-      background: #ff4e85;
-    }
-    .back-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background: #cccccc;
-      color: black;
-      border-radius: 20px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .back-btn:hover {
-      background: #aaaaaa;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Jayden, Sweet as her name</title>
+
+<!-- Fonts -->
+<style>
+@font-face {
+  font-family: 'Shilten';
+  src: url('https://raw.githubusercontent.com/777hori/for-my-jayden/main/Shilten.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Cutesy';
+  src: url('https://raw.githubusercontent.com/777hori/for-my-jayden/main/Cutesy.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MaybeNext';
+  src: url('https://raw.githubusercontent.com/777hori/for-my-jayden/main/Maybe%20Next.otf') format('opentype');
+}
+
+body {
+  background-color: #A7ABE0; /* Your pastel purple */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: white;
+}
+
+/* Falling hearts */
+.heart {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 30px;
+  animation: fall 8s linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-10vh); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* Header */
+h1 {
+  font-family: 'Shilten', sans-serif;
+  font-size: 4.1em;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Text boxes */
+.text-box {
+  max-width: 700px;
+  background: rgba(100, 90, 160, 0.5); /* darker pastel for contrast */
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: justify;
+  color: white;
+}
+
+/* Poem text */
+.poem {
+  font-family: 'Cutesy', sans-serif;
+  font-size: 1.9em;
+  line-height: 1.6em;
+}
+
+/* Song title box */
+.song {
+  font-family: 'MaybeNext', sans-serif;
+  font-size: 2.3em;
+  text-align: center;
+  position: relative;
+}
+
+/* Animated music line */
+.music-bar {
+  width: 80%;
+  height: 4px;
+  background: white;
+  margin: 10px auto 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.music-dot {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  animation: moveDot 2.5s linear infinite;
+}
+@keyframes moveDot {
+  0% { left: 0; }
+  100% { left: calc(100% - 14px); }
+}
+
+/* Proceed button */
+.next-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 30px;
+  font-size: 1.7em;
+  font-family: 'MaybeNext', sans-serif;
+  background: white;
+  color: #A7ABE0;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.next-btn:hover {
+  background: #f4f4f4;
+  transform: scale(1.05);
+}
+</style>
 </head>
 <body>
 
-  <h1>For You 💌 — Continued</h1>
+<h1>Jayden, Sweet as her name</h1>
 
-  <div class="poem">
-    <!-- ✨ Replace this with your own continuation -->
-    And in every sunset,<br>
-    I see your face glow,<br>
-    My heart quietly whispers,<br>
-    "I’ll never let go." 🌅
-  </div>
+<!-- First poem paragraph -->
+<div class="text-box poem">
+The days seem to move differently when I think of you,
+as though time bends to make space for something unexplainable.
+In your presence, even the most ordinary hours feel stitched with meaning,
+like moments placed deliberately by some quiet hand in the universe.
+And sometimes, in the middle of that stillness,
+</div>
 
-  <a href="page3.html" class="next-btn">Next ➡️</a>
-  <br>
-  <a href="index.html" class="back-btn">⬅️ Back</a>
+<!-- Song title + animated music line -->
+<div class="text-box song">
+Intertwine - OverOctober ft. The Ridleys
+<div class="music-bar">
+  <div class="music-dot"></div>
+</div>
+</div>
+
+<!-- Second poem paragraph -->
+<div class="text-box poem">
+I hear “The night when our lives intertwine” – Intertwine, Over October & The Ridleys (2020).
+It arrives without warning, the way the universe sometimes sends its answers in fragments.
+I do not try to elaborate it anymore—
+I simply accept that there is something in the gravity between us,
+something the universe itself seems to lean toward,
+as if every star, every unseen thread,
+had already been pulling me to you long before I knew your name.
+</div>
+
+<a href="page3.html" class="next-btn">Proceed ➤</a>
+
+<!-- Falling hearts script -->
+<script>
+const hearts = ['♡', '♥', '❥', '❤'];
+for (let i = 0; i < 12; i++) {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+  heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+  document.body.appendChild(heart);
+}
+</script>
 
 </body>
 </html>
